@@ -1,0 +1,29 @@
+{
+  "name": "web-service-emulator",
+  "version": "1.0.0",
+  "description": "Web service emulator",
+  "main": "web-service-emulator.js",
+  "scripts": {
+    "test": "pm2 stop web-service-emulator.js & mocha",
+    "start": "grunt build && pm2 start web-service-emulator.js",
+    "stop": "pm2 stop web-service-emulator.js"
+  },
+  "author": "ehpc",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "express-handlebars": "^3.0.0",
+    "lie": "^3.1.1",
+    "server-destroy": "^1.0.1",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "chai": "4.0.0-canary.1",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-jscs": "^3.0.1",
+    "mocha": "^3.2.0",
+    "request": "^2.79.0"
+  }
+}

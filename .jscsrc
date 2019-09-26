@@ -1,0 +1,60 @@
+{
+	"disallowEmptyBlocks": true,
+	"disallowIdentifierNames": [],
+	"disallowMultipleLineBreaks": true,
+	"disallowMultipleSpaces": {"allowEOLComments": true},
+	"disallowNewlineBeforeBlockStatements": true,
+	"disallowOperatorBeforeLineBreak": ["+", "."],
+	"disallowSpaceAfterPrefixUnaryOperators": ["++", "--", "+", "-", "~", "!"],
+	"disallowSpaceBeforeComma": true,
+	"disallowSpacesInsideBrackets": true,
+	"requireSpaceAfterKeywords": [
+		"do",
+		"for",
+		"if",
+		"else",
+		"switch",
+		"case",
+		"try",
+		"catch",
+		"void",
+		"while",
+		"with",
+		"return",
+		"typeof",
+		"function"
+	],
+	"requireSpaceAfterBinaryOperators": [
+		"=",
+		"+",
+		"-",
+		"/",
+		"*",
+		"==",
+		"===",
+		"!=",
+		"!=="
+	],
+	"requireSpaceBeforeBinaryOperators": [
+		"=",
+		"+",
+		"-",
+		"/",
+		"*",
+		"==",
+		"===",
+		"!=",
+		"!=="
+	],
+	"requireSpaceAfterLineComment": { "allExcept": ["#", "="] },
+	"requireKeywordsOnNewLine": ["else"],
+	"validateIndentation": "\t",
+	"validateQuoteMarks": "'",
+	"requireSemicolons": true,
+	"disallowTrailingWhitespace": true,
+	"requireTemplateStrings": {
+		"allExcept": ["stringConcatenation"]
+	},
+	"disallowMultipleLineStrings": true,
+	"requireLineFeedAtFileEnd": true
+}

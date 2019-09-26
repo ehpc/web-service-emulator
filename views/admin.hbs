@@ -1,0 +1,8 @@
+{{!-- Выводим все сервисы --}}
+<div id="services">
+	{{#each services}}
+		{{#if visible}}
+			{{partial 'service' context=this host=../settings.host}}
+		{{/if}}
+	{{/each}}
+</div>

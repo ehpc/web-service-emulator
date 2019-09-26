@@ -1,0 +1,58 @@
+
+{{!-- Редакторы --}}
+
+{{#partial 'editor' id='serviceEditor' title='Редактирование сервиса &laquo;<span class="header-text"></span>&raquo;'}}
+	<form name="editor">
+		<div class="form-group">
+			<label>Название сервиса</label>
+			<input name="name" type="text" class="form-control field">
+		</div>
+		<div class="form-group">
+			<label>Описание сервиса</label>
+			<textarea name="description" class="form-control field"></textarea>
+		</div>
+		<div class="form-group">
+			<label>Начальное состояние</label>
+			<input name="initialState" type="text" class="form-control field">
+		</div>
+		<div class="form-group">
+			<label>Порт</label>
+			<input name="port" type="text" class="form-control field">
+		</div>
+	</form>
+{{/partial}}
+
+{{#partial 'editor' id='eventEditor' title='Редактирование события'}}
+	<form name="editor">
+		<div class="form-group">
+			<label>Endpoint</label>
+			<input name="endpoint" type="text" class="form-control">
+		</div>
+		<div class="form-group">
+			<label>Input</label>
+			<textarea name="input" class="form-control" rows="10"></textarea>
+		</div>
+	</form>
+{{/partial}}
+
+{{#partial 'editor' id='transitionEditor' title='Редактирование перехода'}}
+	<form name="editor">
+		<div class="form-group">
+			<label>Next</label>
+			<input name="next" type="text" class="form-control">
+		</div>
+		<div class="form-group">
+			<label>Output</label>
+			<textarea name="output" class="form-control" rows="10"></textarea>
+		</div>
+	</form>
+{{/partial}}
+
+{{#partial 'editor' id='stateEditor' title='Редактирование состояния'}}
+	<form name="editor">
+		<div class="form-group">
+			<label>Название</label>
+			<input name="name" type="text" class="form-control">
+		</div>
+	</form>
+{{/partial}}

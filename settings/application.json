@@ -1,0 +1,28 @@
+{
+	"host": "wpb.fisgroup.ru",
+	"port": 8081,
+	"serviceTemplate": {
+		"name": "Без имени",
+		"description": "Пустой сервис.",
+		"port": 7300,
+		"editable": true,
+		"states": [
+			"begin"
+		],
+		"initialState": "begin",
+		"stateTransitionTable": [
+			{
+				"event": {
+					"endpoint": "/",
+					"input": "__*__"
+				},
+				"transitions": [
+					{
+						"next": "begin",
+						"output": "Ответ"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,315 @@
+[
+	{
+		"id": 1000,
+		"name": "Editable",
+		"description": "Отвечает «Hello, world!» на событие «/:». Предназначен для тестирования редактирования.",
+		"port": 7007,
+		"visible": true,
+		"editable": true,
+		"states": [
+			"begin",
+			"begin2"
+		],
+		"initialState": "begin",
+		"stateTransitionTable": [
+			{
+				"event": {
+					"endpoint": "/",
+					"input": "__*__"
+				},
+				"transitions": [
+					{
+						"next": "begin",
+						"output": "<?xml version=\"1.0\"?>\n\n<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope/\" soap:encodingStyle=\"http://www.w3.org/2003/05/soap-encoding\">\n    <soap:Body xmlns:m=\"http://www.example.org/stock\">\n        <m:SomeResponse>\n            <m:SomeData>data</m:SomeData>\n        </m:SomeResponse>\n    </soap:Body>\n</soap:Envelope>\n"
+					},
+					{
+						"next": "begin2",
+						"output": "test"
+					}
+				]
+			},
+			{
+				"event": {
+					"endpoint": "/path",
+					"input": "__*__"
+				},
+				"transitions": [
+					{
+						"next": "begin",
+						"output": "test"
+					},
+					{
+						"next": "begin2",
+						"output": "test"
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": 1001,
+		"name": "Hello, world!",
+		"description": "Отвечает «Hello, world!» на событие «/:».",
+		"port": 7000,
+		"visible": true,
+		"editable": false,
+		"states": [
+			"begin"
+		],
+		"initialState": "begin",
+		"stateTransitionTable": [
+			{
+				"event": {
+					"endpoint": "/",
+					"input": ""
+				},
+				"transitions": [
+					{
+						"next": "begin",
+						"output": "Hello, world!"
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": 1002,
+		"name": "Ping, pong",
+		"description": "Отвечает «pong» на событие «/:ping» и «ping» на событие «/:pong».",
+		"port": 7001,
+		"visible": true,
+		"editable": false,
+		"states": [
+			"begin"
+		],
+		"initialState": "begin",
+		"stateTransitionTable": [
+			{
+				"event": {
+					"endpoint": "/",
+					"input": "ping"
+				},
+				"transitions": [
+					{
+						"next": "begin",
+						"output": "pong"
+					}
+				]
+			},
+			{
+				"event": {
+					"endpoint": "/",
+					"input": "pong"
+				},
+				"transitions": [
+					{
+						"next": "begin",
+						"output": "ping"
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": 1003,
+		"name": "Multiple endpoints",
+		"description": "Отвечает «Endpoint 1» на событие «/endpoint1:» и «Endpoint 2» на событие «/endpoint2:».",
+		"port": 7002,
+		"visible": true,
+		"editable": false,
+		"states": [
+			"begin"
+		],
+		"initialState": "begin",
+		"stateTransitionTable": [
+			{
+				"event": {
+					"endpoint": "/endpoint1",
+					"input": "__*__"
+				},
+				"transitions": [
+					{
+						"next": "begin",
+						"output": "Endpoint 1"
+					}
+				]
+			},
+			{
+				"event": {
+					"endpoint": "/endpoint2",
+					"input": "__*__"
+				},
+				"transitions": [
+					{
+						"next": "begin",
+						"output": "Endpoint 2"
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": 1004,
+		"name": "Cycled steps",
+		"description": "Отвечает «step 1», затем «step 2», потом «step 1» и так далее по кругу.",
+		"port": 7003,
+		"visible": true,
+		"editable": false,
+		"states": [
+			"first",
+			"second"
+		],
+		"initialState": "first",
+		"stateTransitionTable": [
+			{
+				"event": {
+					"endpoint": "/",
+					"input": "__*__"
+				},
+				"transitions": [
+					{
+						"next": "second",
+						"output": "step 1"
+					},
+					{
+						"next": "first",
+						"output": "step 2"
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": 1005,
+		"name": "Session test",
+		"description": "Для каждого клиента возвращает session-id на первом шаге и «step 2» для второго, далее по кругу.",
+		"port": 7004,
+		"visible": true,
+		"editable": false,
+		"states": [
+			"first",
+			"second"
+		],
+		"initialState": "first",
+		"stateTransitionTable": [
+			{
+				"event": {
+					"endpoint": "/",
+					"input": "__*__"
+				},
+				"transitions": [
+					{
+						"next": "second",
+						"output": "__SESSION_ID__"
+					},
+					{
+						"next": "first",
+						"output": "step 2"
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": 1006,
+		"name": "Ok to anything",
+		"description": "Всегда возвращает «ok».",
+		"port": 7005,
+		"visible": true,
+		"editable": false,
+		"states": [
+			"begin"
+		],
+		"initialState": "begin",
+		"stateTransitionTable": [
+			{
+				"event": {
+					"endpoint": "/",
+					"input": "ok?"
+				},
+				"transitions": [
+					{
+						"next": "begin",
+						"output": "ok!"
+					}
+				]
+			},
+			{
+				"event": {
+					"endpoint": "/",
+					"input": "__*__"
+				},
+				"transitions": [
+					{
+						"next": "begin",
+						"output": "ok"
+					}
+				]
+			},
+			{
+				"event": {
+					"endpoint": "/endpoint",
+					"input": "__*__"
+				},
+				"transitions": [
+					{
+						"next": "begin",
+						"output": "ok"
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": 1007,
+		"name": "Simple SOAP",
+		"description": "Отвечает XML-SOAP на любое событие.",
+		"port": 7006,
+		"visible": true,
+		"editable": false,
+		"states": [
+			"begin"
+		],
+		"initialState": "begin",
+		"stateTransitionTable": [
+			{
+				"event": {
+					"endpoint": "/",
+					"input": "__*__"
+				},
+				"transitions": [
+					{
+						"next": "begin",
+						"output": "<?xml version=\"1.0\"?>\n\n<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope/\" soap:encodingStyle=\"http://www.w3.org/2003/05/soap-encoding\">\n    <soap:Body xmlns:m=\"http://www.example.org/stock\">\n        <m:SomeResponse>\n            <m:SomeData>data</m:SomeData>\n        </m:SomeResponse>\n    </soap:Body>\n</soap:Envelope>\n"
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": 0,
+		"name": "Название сервиса",
+		"description": "Описание сервиса.",
+		"port": 0,
+		"visible": false,
+		"editable": true,
+		"states": [
+			"begin"
+		],
+		"initialState": "begin",
+		"stateTransitionTable": [
+			{
+				"event": {
+					"endpoint": "/",
+					"input": "__*__"
+				},
+				"transitions": [
+					{
+						"next": "begin",
+						"output": "Ответ"
+					}
+				]
+			}
+		]
+	}
+]

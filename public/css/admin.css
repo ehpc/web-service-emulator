@@ -1,0 +1,83 @@
+body {
+	padding-bottom: 30px;
+}
+
+pre {
+	max-height: 300px;
+	white-space: pre-wrap;
+}
+
+footer, footer a, footer a:hover {
+	color: #ccc;
+}
+
+table td,
+table th {
+	position: relative;
+}
+
+table th.index {
+	width: 30px;
+}
+
+table .event {
+	min-width: 200px;
+}
+
+table .actions {
+	width: 52px;
+	text-align: right;
+}
+
+table th .delete,
+table th .edit,
+table td .edit {
+	position: absolute;
+	right: 7px;
+	top: 11px;
+}
+
+table th .edit {
+	right: 28px;
+}
+
+table .addEvent {
+	margin-right: 5px;
+}
+
+.navbar {
+	border: 0;
+	border-radius: 0;
+}
+
+.panel-primary .panel-heading a {
+	color: #ffffff;
+}
+
+.edit, .delete, .add, .addEvent, .addState {
+	cursor: pointer;
+}
+
+.panel-heading .edit,
+.panel-heading .delete,
+.panel-heading .reset {
+	display: block;
+	float: right;
+}
+
+.panel-heading .edit,
+.panel-heading .delete {
+	margin-right: 10px;
+}
+
+#saveAll {
+	margin-right: 15px;
+}
+
+.serviceTemplate {
+	display: none;
+}
+
+.state {
+	min-width: 150px;
+}

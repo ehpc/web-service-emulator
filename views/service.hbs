@@ -1,0 +1,69 @@
+<div id="{{name}}" class="{{#if isTemplate}}serviceTemplate{{else}}service{{/if}} panel panel-{{#if editable}}primary{{else}}info{{/if}}" data-id="{{id}}">
+	<div class="panel-heading">
+		{{#unless editable}}<i class="fa fa-paperclip" aria-hidden="true"></i>{{/unless}}
+		Сервис &laquo;<strong><a href="#{{name}}"><span class="service-name">{{name}}</span></a></strong>&raquo;
+		<a href="http://{{host}}:{{port}}/reset" target="_blank"><i title="Сбросить состояния сервиса" class="fa fa-refresh reset" aria-hidden="true"></i></a>
+		{{#if editable}}
+			<i title="Удалить сервис" class="fa fa-trash delete" aria-hidden="true"></i>
+			<i title="Редактировать сервис" class="fa fa-pencil edit" aria-hidden="true"></i>
+		{{/if}}
+	</div>
+	<div class="panel-body">
+		<p class="service-description">{{description}}</p>
+		<p><strong>URL:</strong> http://{{host}}:<span class="service-port">{{port}}</span></p>
+		<p><strong>Начальное состояние:</strong> <span class="service-initialState">{{initialState}}</span></p>
+	</div>
+	<table class="table table-bordered">
+		<thead>
+		<tr>
+			<th class="index">#</th>
+			<th class="event">События \ Состояния</th>
+			{{#each states}}
+				<th class="state">
+					{{#if ../editable}}
+						<i class="fa fa-pencil edit" aria-hidden="true" title="Редактировать состояние"></i>
+						<i class="fa fa-trash delete" aria-hidden="true" title="Удалить состояние"></i>
+					{{/if}}
+					<span class="state-name">{{this}}</span>
+				</th>
+			{{/each}}
+			{{#if editable}}
+				<th class="actions">
+					<i class="fa fa-plus addEvent" aria-hidden="true" title="Добавить событие"></i>
+					<i class="fa fa-columns addState" aria-hidden="true" title="Добавить состояние"></i>
+				</th>
+			{{/if}}
+		</tr>
+		</thead>
+		<tbody>
+		{{#each stateTransitionTable}}
+			<tr>
+				<td>{{inc @index}}</td>
+				<td class="event">
+					{{#if ../editable}}
+						<i class="fa fa-pencil edit" aria-hidden="true" title="Редактировать событие"></i>
+					{{/if}}
+					<p><strong>endpoint: </strong><span class="event-endpoint">{{event.endpoint}}</span></p>
+					<p><strong>input: </strong></p>
+					<pre class="event-input">{{event.input}}</pre>
+				</td>
+				{{#each transitions}}
+					<td class="transition">
+						{{#if ../../editable}}
+							<i class="fa fa-pencil edit" aria-hidden="true" title="Редактировать переход"></i>
+						{{/if}}
+						<p><strong>next: </strong><span class="transition-next">{{next}}</span></p>
+						<p><strong>output: </strong></p>
+						<pre class="transition-output">{{output}}</pre>
+					</td>
+				{{/each}}
+				{{#if ../editable}}
+					<td class="actions">
+						<i class="fa fa-trash delete" aria-hidden="true" title="Удалить событие"></i>
+					</td>
+				{{/if}}
+			</tr>
+		{{/each}}
+		</tbody>
+	</table>
+</div>

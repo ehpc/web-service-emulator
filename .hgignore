@@ -1,0 +1,14 @@
+syntax: glob
+nbproject
+Session.vim
+*.orig
+.idea
+META-INF
+.project
+.settings
+node_modules/
+*.log
+.sublime-grunt.cache
+bower_components/
+*.~pck
+npm-debug.log
