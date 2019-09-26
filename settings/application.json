@@ -1,5 +1,5 @@
 {
-	"host": "wpb.fisgroup.ru",
+	"host": "localhost",
 	"port": 8081,
 	"serviceTemplate": {
 		"name": "Без имени",

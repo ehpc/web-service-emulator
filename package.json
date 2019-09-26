@@ -11,12 +11,12 @@
   "author": "ehpc",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.16.1",
-    "express": "^4.14.1",
-    "express-handlebars": "^3.0.0",
-    "lie": "^3.1.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "lie": "^3.3.0",
     "server-destroy": "^1.0.1",
-    "winston": "^2.3.1"
+    "winston": "^2.4.4"
   },
   "devDependencies": {
     "chai": "4.0.0-canary.1",

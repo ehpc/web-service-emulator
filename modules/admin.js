@@ -17,7 +17,9 @@ const fs = require('fs'),
 let listener, // HTTP.Server
 	hbs = expressHandlebars.create({
 		extname: 'hbs',
-		defaultLayout: 'default'
+		defaultLayout: 'default',
+		layoutsDir: 'views/layouts',
+		partialsDir: 'views/partials'
 	});
 
 /**
