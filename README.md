@@ -4,13 +4,13 @@
 
 Эмулятор представляет собой коллекцию конечных автоматов. К примеру, сэмулируем конечным автоматом сервис получения данных по заявке:
 
-![Emulator FSM Example](https://octodex.github.com/images/yaktocat.png)
+![Emulator FSM Example](https://raw.githubusercontent.com/ehpc/web-service-emulator/master/docs/web-service-emulator-example.png)
 
 Следует учесть, что с одним автоматом могут одновременно работать несколько пользователей. В связи с этим следует ввести некоторое пространство выполнения, уникальное для каждого клиента. Если мы ограничимся только http-протоколом для сервисов, то можно использовать обычную куку для разделения пространств имен.
 
 Примерная схема данных эмулятора:
 
-![Emulator Diagram](https://octodex.github.com/images/yaktocat.png)
+![Emulator Diagram](https://raw.githubusercontent.com/ehpc/web-service-emulator/master/docs/web-service-emulator-structure.png)
 
 # Схема использования
 
